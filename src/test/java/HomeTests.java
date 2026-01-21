@@ -1,20 +1,16 @@
 
 import com.codeborne.selenide.Configuration;
+import io.qameta.allure.Story;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
 import utils.RandomUtils;
 
-public class HomeTests {
+import static io.qameta.allure.Allure.step;
 
-    @BeforeAll
-    static void beforeAll() {
-        Configuration.browserSize = "1920x1080";
-        Configuration.baseUrl = "https://demoqa.com";
-        //Configuration.pageLoadStrategy = "eager";
-        //Configuration.timeout = 1000; // default 4000
-        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
-    }
+@Story("Registration form")
+public class HomeTests extends TestBase{
 
     RegistrationPage registrationPage = new RegistrationPage();
 
@@ -29,8 +25,11 @@ public class HomeTests {
     String сity = RandomUtils.getRandomCity(state);
 
     @Test
+    @DisplayName("Successful Registration")
     void fillFormTest() {
-
+        step("Open registration page", () ->
+                registrationPage.openPage());
+        step("Fill registration form", () -> {
         registrationPage
                 .openPage()
                 .hidebanner()
@@ -48,7 +47,7 @@ public class HomeTests {
                 .setCity(сity)
                 .setSubmit()
         ;
-
+        });
         //Проверки:
         registrationPage
                 .checkResult("Student Name", TestData.firstname +" " +TestData.lastName)
