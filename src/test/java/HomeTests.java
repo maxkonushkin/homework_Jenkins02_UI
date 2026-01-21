@@ -30,48 +30,6 @@ public class HomeTests extends TestBase{
         step("Open registration page", () ->
                 registrationPage.openPage());
         step("Fill registration form", () -> {
-        registrationPage
-                .openPage()
-                .hidebanner()
-                .setFirstName(TestData.firstname)
-                .setLastName(TestData.lastName)
-                .setEmail(TestData.email)
-                .setCurrentAddress(TestData.currentAddress)
-                .setGender(gender)
-                .setDateOfBirth(dateOfBirth1, dateOfBirth2, dateOfBirth3)
-                .setUserNumber(TestData.phoneNumber)
-                .setUploadPicture(uploadPicture)
-                .setSubjectsInput(subjectsInput)
-                .setHobbiesWrapper(hobbiesWrapper)
-                .setState(state)
-                .setCity(сity)
-                .setSubmit()
-        ;
-        });
-        //Проверки:
-
-            step("Check registration form results component appears", () -> {
-                registrationPage
-                        .checkResult("Student Name", TestData.firstname + " " + TestData.lastName)
-                        .checkResult("Student Email", TestData.email)
-                        .checkResult("Gender", gender)
-                        .checkResult("Mobile", TestData.phoneNumber)
-                        .checkResult("Date of Birth", dateOfBirth1 + " " + dateOfBirth2 + "," + dateOfBirth3)
-                        .checkResult("Subjects", subjectsInput)
-                        .checkResult("Hobbies", hobbiesWrapper)
-                        .checkResult("Picture", uploadPicture)
-                        .checkResult("Address", TestData.currentAddress)
-                        .checkResult("State and City", state + " " + сity)
-                ;
-            });
-    }
-
-    @Test
-    @DisplayName("Successful Registration2")
-    void fillFormTest2() {
-        step("Open registration page", () ->
-                registrationPage.openPage());
-        step("Fill registration form", () -> {
             registrationPage
                     .openPage()
                     .hidebanner()
@@ -107,4 +65,5 @@ public class HomeTests extends TestBase{
             ;
         });
     }
+
 }

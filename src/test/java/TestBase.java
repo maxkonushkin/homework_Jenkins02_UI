@@ -6,7 +6,7 @@ public class TestBase {
     static void beforeAll() {
         Configuration.browserSize = "1920x1080";
         Configuration.baseUrl = "https://demoqa.com";
-        //Configuration.pageLoadStrategy = "eager";
+        Configuration.pageLoadStrategy = "eager";
         //Configuration.timeout = 1000; // default 4000
         Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
     }
