@@ -4,6 +4,9 @@ import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 
+import static com.codeborne.selenide.Selenide.executeJavaScript;
+import static com.codeborne.selenide.Selenide.open;
+
 public class TestBase {
 
     @BeforeEach
@@ -15,6 +18,10 @@ public class TestBase {
     static void beforeAll() {
         Configuration.browserSize = "1920x1080";
         Configuration.baseUrl = "https://demoqa.com";
+        open("/automation-practice-form");
+        // для борьбы с баннерами
+        executeJavaScript("$('#fixedban').remove()");
+        executeJavaScript("$('footer').remove()");
         Configuration.pageLoadStrategy = "eager";
         //Configuration.timeout = 1000; // default 4000
         Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
