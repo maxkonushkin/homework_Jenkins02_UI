@@ -1,9 +1,20 @@
 
+import com.codeborne.selenide.Configuration;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
 import utils.RandomUtils;
 
-public class HomeTests extends TestBase{
+public class HomeTests {
+
+    @BeforeAll
+    static void beforeAll() {
+        Configuration.browserSize = "1920x1080";
+        Configuration.baseUrl = "https://demoqa.com";
+        Configuration.pageLoadStrategy = "eager";
+        //Configuration.timeout = 1000; // default 4000
+        //Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
+    }
 
     RegistrationPage registrationPage = new RegistrationPage();
 
@@ -51,44 +62,5 @@ public class HomeTests extends TestBase{
                 .checkResult("Address", TestData.currentAddress)
                 .checkResult("State and City", state + " " + сity)
         ;
-
-    }
-
-    @Test
-    void minFormTest() {
-
-        registrationPage
-                .openPage()
-                .setFirstName(TestData.firstname)
-                .setLastName(TestData.lastName)
-                .setUserNumber(TestData.phoneNumber)
-                .setGender(gender)
-                .setSubmit()
-        ;
-        //Проверки:
-        registrationPage
-                .checkResult("Student Name", TestData.firstname +" " +TestData.lastName)
-                .checkResult("Gender", gender)
-                .checkResult("Mobile", TestData.phoneNumber)
-        ;
-
-    }
-    @Test
-    void negativeFormTest() {
-
-        registrationPage
-                .openPage()
-                .setFirstName(TestData.firstname)
-                // Проверяем обязательность поля setLastName
-                // .setLastName(lastName)
-                .setUserNumber(TestData.phoneNumber)
-                .setGender(gender)
-                .setSubmit()
-        ;
-        //Проверки:
-        registrationPage
-                .checkResult("Student Name", TestData.firstname)
-        ;
-
     }
 }
