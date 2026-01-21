@@ -48,7 +48,6 @@ public class HomeTests extends TestBase{
                     .setSubmit()
             ;
         });
-        //Проверки:
 
         step("Check registration form results component appears", () -> {
             registrationPage

@@ -30,6 +30,7 @@ dependencies {
     testImplementation (
             "com.codeborne:selenide:$selenideVersion",
             "org.junit.jupiter:junit-jupiter:$junitVersion",
+            "io.qameta.allure:allure-selenide:$allureVersion",
             "org.slf4j:slf4j-simple:$slf4jVersion",
             'com.github.javafaker:javafaker:1.0.2'
     )
