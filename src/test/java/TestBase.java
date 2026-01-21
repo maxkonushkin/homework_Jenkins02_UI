@@ -5,7 +5,6 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 
 import static com.codeborne.selenide.Selenide.executeJavaScript;
-import static com.codeborne.selenide.Selenide.open;
 
 public class TestBase {
 
@@ -18,7 +17,6 @@ public class TestBase {
     static void beforeAll() {
         Configuration.browserSize = "1920x1080";
         Configuration.baseUrl = "https://demoqa.com";
-        open("/automation-practice-form");
         // для борьбы с баннерами
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
