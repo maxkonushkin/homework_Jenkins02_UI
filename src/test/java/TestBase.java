@@ -10,7 +10,6 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import java.util.Map;
 
 import static com.codeborne.selenide.Selenide.closeWebDriver;
-import static com.codeborne.selenide.Selenide.executeJavaScript;
 
 public class TestBase {
 
@@ -23,10 +22,7 @@ public class TestBase {
     static void beforeAll() {
         Configuration.browserSize = "1920x1080";
         Configuration.baseUrl = "https://demoqa.com";
-        // для борьбы с баннерами
-
         Configuration.pageLoadStrategy = "eager";
-        //Configuration.timeout = 1000; // default 4000
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("selenoid:options", Map.<String, Object>of(
                 "enableVNC", true,
