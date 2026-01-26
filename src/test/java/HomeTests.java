@@ -43,6 +43,7 @@ public class HomeTests extends TestBase{
                     .setState(state)
                     .setCity(сity)
                     .setSubmit()
+
             ;
         });
 
