@@ -1,4 +1,3 @@
-
 import io.qameta.allure.Story;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -7,7 +6,7 @@ import utils.RandomUtils;
 import static io.qameta.allure.Allure.step;
 
 @Story("Registration form")
-public class HomeTests extends TestBase{
+public class WebTests extends TestBase{
 
     RegistrationPage registrationPage = new RegistrationPage();
 
