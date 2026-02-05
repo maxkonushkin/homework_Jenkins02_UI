@@ -3,7 +3,7 @@ import org.aeonbits.owner.Config;
 
 @Config.Sources({
 
-        "classpath:${remote}.properties",
+        "classpath:${env}.properties",
         "classpath:local.properties"
 })
 
